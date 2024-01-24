@@ -4,11 +4,32 @@ import { useGetAllUsersByRequestQuery } from 'store/api'
 import * as Styled from './main-page-styled'
 
 export const MainPage = () => {
-	const [inputValue, setInputValue] = useState<string>('marina')
+	const [inputValue, setInputValue] = useState<string>('GitHub')
+	const [pagePagination, setPagePagination] = useState<number>(1)
+	console.log(`Текущая страница ${pagePagination}`)
 
-	const { data: usersData, isLoading } =
-		useGetAllUsersByRequestQuery(inputValue)
-	console.log(usersData)
+	const { data: usersData, isLoading } = useGetAllUsersByRequestQuery({
+		inputValue,
+		pagePagination,
+	})
+
+	const currentPages = Number(Math.ceil(usersData?.total_count / 20))
+	console.log(`Итого страниц ${currentPages}`)
+
+	const handleForward = () => {
+		if (currentPages === pagePagination) {
+			setPagePagination(1)
+			return
+		}
+		setPagePagination((prev) => prev + 1)
+	}
+
+	const handleBack = () => {
+		if (pagePagination === 1) {
+			return
+		}
+		setPagePagination((prev) => prev - 1)
+	}
 
 	return (
 		<>
@@ -29,7 +50,16 @@ export const MainPage = () => {
 					</Styled.UsersBlock>
 				</>
 			)}
-			<Styled.ShowMoreButton>Показать еще</Styled.ShowMoreButton>
+			<Styled.baseText>Текущая страница --{pagePagination}--</Styled.baseText>
+			<Styled.ButtonsContainer>
+				<Styled.ShowMoreButton onClick={handleBack}>
+					Назад
+				</Styled.ShowMoreButton>
+				<Styled.ShowMoreButton onClick={handleForward}>
+					Вперед
+				</Styled.ShowMoreButton>
+			</Styled.ButtonsContainer>
 		</>
 	)
 }
+// marinao

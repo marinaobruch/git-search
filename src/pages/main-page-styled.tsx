@@ -23,6 +23,12 @@ export const User = styled.div`
 export const UserImg = styled.img`
 	border-radius: 50%;
 `
+
+export const ButtonsContainer = styled.div`
+	display: flex;
+	gap: 10px;
+`
+
 export const ShowMoreButton = styled.button`
 	color: #333333;
 	background: none;
@@ -39,4 +45,8 @@ export const ShowMoreButton = styled.button`
 		background: #333333;
 		border: 2px solid white;
 	}
+`
+
+export const baseText = styled.h4`
+	font-size: 14px;
 `

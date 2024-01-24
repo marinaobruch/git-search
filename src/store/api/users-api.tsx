@@ -2,6 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IGetUsers } from 'interface/api-interface'
 
 const USER_PER_PAGE = 20
+interface IProps {
+	inputValue: string
+	pagePagination: number
+}
 
 export const userApi = createApi({
 	reducerPath: 'userApi',
@@ -9,8 +13,9 @@ export const userApi = createApi({
 		baseUrl: 'https://api.github.com/',
 	}),
 	endpoints: (build) => ({
-		getAllUsersByRequest: build.query<IGetUsers, string>({
-			query: (name) => `search/users?q=${name}&per_page=${USER_PER_PAGE}`,
+		getAllUsersByRequest: build.query<IGetUsers, IProps>({
+			query: ({ inputValue, pagePagination }) =>
+				`search/users?q=${inputValue}&per_page=${USER_PER_PAGE}&page=${pagePagination}`,
 		}),
 	}),
 })
