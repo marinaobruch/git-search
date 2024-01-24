@@ -6,7 +6,6 @@ import * as Styled from './main-page-styled'
 export const MainPage = () => {
 	const [inputValue, setInputValue] = useState<string>('GitHub')
 	const [pagePagination, setPagePagination] = useState<number>(1)
-	console.log(`Текущая страница ${pagePagination}`)
 
 	const { data: usersData, isLoading } = useGetAllUsersByRequestQuery({
 		inputValue,
@@ -14,7 +13,6 @@ export const MainPage = () => {
 	})
 
 	const currentPages = Number(Math.ceil(usersData?.total_count / 20))
-	console.log(`Итого страниц ${currentPages}`)
 
 	const handleForward = () => {
 		if (currentPages === pagePagination) {
@@ -62,4 +60,3 @@ export const MainPage = () => {
 		</>
 	)
 }
-// marinao
