@@ -1,5 +1,14 @@
 import styled from 'styled-components'
 
+export const MainContainer = styled.div`
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+`
+
 export const Header = styled.h1`
 	font-size: 40px;
 `
@@ -18,10 +27,16 @@ export const User = styled.div`
 	justify-content: center;
 	align-items: center;
 	gap: 4px;
+	cursor: pointer;
 `
 
 export const UserImg = styled.img`
 	border-radius: 50%;
+`
+
+export const UserImgSmall = styled.img`
+	border-radius: 50%;
+	height: 140px;
 `
 
 export const ButtonsContainer = styled.div`
@@ -49,4 +64,61 @@ export const ShowMoreButton = styled.button`
 
 export const baseText = styled.h4`
 	font-size: 14px;
+`
+export const UserDataBlock = styled.div`
+	position: fixed;
+	height: 500px;
+	width: 300px;
+	word-wrap: break-word;
+	background-color: #ececec;
+	box-shadow: 0px 0px 10px 5px #d2d1d1;
+	top: 150px;
+	right: 0;
+`
+
+export const UserDataInfoContainer = styled.div`
+	height: 100%;
+	word-wrap: break-word;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 20px;
+`
+
+export const UserDataIntoText = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 20px;
+`
+export const UserDataIntoTextBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 5px;
+`
+
+export const UserDataTextHeader = styled.p`
+	font-size: 20px;
+	word-wrap: break-word;
+`
+
+export const UserDataText = styled.p`
+	font-size: 14px;
+	word-wrap: break-word;
+`
+
+export const UserDataLink = styled.a`
+	font-size: 14px;
+	word-wrap: break-word;
+`
+export const Cross = styled.div`
+	cursor: pointer;
+	position: absolute;
+	padding: 10px;
+	font-size: 24px;
 `

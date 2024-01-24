@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IGetUsers } from 'interface/api-interface'
+import { IGetRepo, IGetUsers } from 'interface/api-interface'
 
 const USER_PER_PAGE = 20
 interface IProps {
@@ -17,7 +17,10 @@ export const userApi = createApi({
 			query: ({ inputValue, pagePagination }) =>
 				`search/users?q=${inputValue}&per_page=${USER_PER_PAGE}&page=${pagePagination}`,
 		}),
+		getUsersRepos: build.query<IGetRepo, string>({
+			query: (login) => `users/${login}/repos`,
+		}),
 	}),
 })
 
-export const { useGetAllUsersByRequestQuery } = userApi
+export const { useGetAllUsersByRequestQuery, useGetUsersReposQuery } = userApi
