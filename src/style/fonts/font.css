@@ -1,0 +1,6 @@
+@font-face {
+	font-family: 'RobotoMono';
+	src: url('/src/assets/font/RobotoMono-Regular.ttf') format('opentype');
+	font-weight: 500;
+	font-style: normal;
+}
