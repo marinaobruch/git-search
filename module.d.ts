@@ -4,8 +4,6 @@ declare module '*.css'
 declare module '*.woff2'
 declare module '*.png'
 
-declare module 'react-slick'
-
 declare module '*.svg' {
 	import React = require('react')
 

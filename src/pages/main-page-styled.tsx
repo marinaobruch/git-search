@@ -29,6 +29,7 @@ export const UsersBlock = styled.div`
 
 export const User = styled.div`
 	border: 1px solid #5b5b5c;
+	background-image: url('./src/assets/backgrounds/texture.png');
 
 	padding: 4px;
 	display: flex;
