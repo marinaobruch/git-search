@@ -13,7 +13,7 @@ export const UsersBlock = styled.div`
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	@media (max-width: 450px) {
+	@media (max-width: 550px) {
 		grid-template-columns: repeat(1, 1fr);
 		margin: 10px;
 	}
@@ -38,6 +38,12 @@ export const User = styled.div`
 	}
 `
 
+export const UserTitle = styled.div`
+	color: #464546;
+	font-size: 20px;
+`
+
 export const UserImg = styled.img`
 	border-radius: 50%;
+	max-width: 240px;
 `
