@@ -20,10 +20,16 @@ const menuItemList = [
 
 interface IProps {
 	setOrder: (name: string) => void
+	order: string
 }
 
-export const NavMenu: FC<IProps> = ({ setOrder }) => {
+export const NavMenu: FC<IProps> = ({ setOrder, order }) => {
 	const [isOpenMenu, setIsOpenMenu] = useState(false)
+
+	const sortName = {
+		asc: 'Начинающий',
+		desc: 'Властитель',
+	}
 
 	const handlerOnClickButtonMenu = () => {
 		setIsOpenMenu(!isOpenMenu)
@@ -43,7 +49,8 @@ export const NavMenu: FC<IProps> = ({ setOrder }) => {
 								<Styled.NavMenuBurgerIcon>
 									<RxHamburgerMenu />
 									<Styled.NavMenuBurgerText>
-										Сортировка по репозиториям
+										Сортировка по репозиториям (
+										{sortName[order as keyof typeof sortName]})
 									</Styled.NavMenuBurgerText>
 								</Styled.NavMenuBurgerIcon>
 							</motion.div>

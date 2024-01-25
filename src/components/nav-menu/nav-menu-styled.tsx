@@ -29,6 +29,7 @@ export const NavMenuBurgerIcon = styled.div`
 
 export const NavMenuBurgerText = styled.div`
 	font-size: 14px;
+	cursor: pointer;
 `
 
 export const NavMenuCrossIcon = styled.div`

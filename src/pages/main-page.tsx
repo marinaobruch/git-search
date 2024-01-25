@@ -69,7 +69,7 @@ export const MainPage = () => {
 				<div>{errors}</div>
 			) : (
 				<>
-					<NavMenu setOrder={setOrder} />
+					<NavMenu setOrder={setOrder} order={order} />
 					{isLoading ? (
 						<div>
 							<Puff
