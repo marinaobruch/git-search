@@ -4,6 +4,7 @@ export const UsersBlock = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 20px;
+	width: 100%;
 
 	@media (min-width: 1200px) {
 		grid-template-columns: repeat(4, 1fr);
