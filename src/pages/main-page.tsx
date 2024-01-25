@@ -36,7 +36,12 @@ export const MainPage = () => {
 	}
 
 	const handleSelectUser = (user: IGetUsersItems) => {
+		setOpenAddInfo(true)
 		setSelectedUser(user)
+	}
+
+	const handleCloseModal = () => {
+		setOpenAddInfo(false)
 	}
 
 	return (
@@ -72,35 +77,39 @@ export const MainPage = () => {
 					Вперед
 				</Styled.ShowMoreButton>
 			</Styled.ButtonsContainer>
-			<Styled.UserDataBlock>
-				<Styled.Cross>
-					<IoIosCloseCircleOutline />
-				</Styled.Cross>
-				{isLoadingGetUsers ? (
-					<div>Loading...</div>
-				) : (
-					<Styled.UserDataInfoContainer>
-						<Styled.UserImgSmall
-							src={`${selectedUser?.avatar_url}`}
-							alt='img-avatar'
-						/>
-						<Styled.UserDataIntoText>
-							<Styled.UserDataIntoTextBox>
-								<Styled.UserDataTextHeader>Логин:</Styled.UserDataTextHeader>
-								<Styled.UserDataText>{selectedUser?.login}</Styled.UserDataText>
-							</Styled.UserDataIntoTextBox>
-							<Styled.UserDataIntoTextBox>
-								<Styled.UserDataTextHeader>
-									Ссылка на GitHub:
-								</Styled.UserDataTextHeader>
-								<Styled.UserDataLink href={`${selectedUser?.html_url}`}>
-									{selectedUser?.html_url}
-								</Styled.UserDataLink>
-							</Styled.UserDataIntoTextBox>
-						</Styled.UserDataIntoText>
-					</Styled.UserDataInfoContainer>
-				)}
-			</Styled.UserDataBlock>
+			{openAddInfo && (
+				<Styled.UserDataBlock>
+					<Styled.Cross onClick={handleCloseModal}>
+						<IoIosCloseCircleOutline />
+					</Styled.Cross>
+					{isLoadingGetUsers ? (
+						<div>Loading...</div>
+					) : (
+						<Styled.UserDataInfoContainer>
+							<Styled.UserImgSmall
+								src={`${selectedUser?.avatar_url}`}
+								alt='img-avatar'
+							/>
+							<Styled.UserDataIntoText>
+								<Styled.UserDataIntoTextBox>
+									<Styled.UserDataTextHeader>Логин:</Styled.UserDataTextHeader>
+									<Styled.UserDataText>
+										{selectedUser?.login}
+									</Styled.UserDataText>
+								</Styled.UserDataIntoTextBox>
+								<Styled.UserDataIntoTextBox>
+									<Styled.UserDataTextHeader>
+										Ссылка на GitHub:
+									</Styled.UserDataTextHeader>
+									<Styled.UserDataLink href={`${selectedUser?.html_url}`}>
+										{selectedUser?.html_url}
+									</Styled.UserDataLink>
+								</Styled.UserDataIntoTextBox>
+							</Styled.UserDataIntoText>
+						</Styled.UserDataInfoContainer>
+					)}
+				</Styled.UserDataBlock>
+			)}
 		</Styled.MainContainer>
 	)
 }

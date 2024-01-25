@@ -1,4 +1,13 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const show = keyframes`
+  from {
+		opacity: 0;
+  }
+  to {
+		opacity: 1;
+  }
+`
 
 export const MainContainer = styled.div`
 	position: relative;
@@ -15,7 +24,7 @@ export const Header = styled.h1`
 export const UsersBlock = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 10px;
+	gap: 20px;
 `
 
 export const User = styled.div`
@@ -28,6 +37,12 @@ export const User = styled.div`
 	align-items: center;
 	gap: 4px;
 	cursor: pointer;
+
+	&:hover {
+		border: 1px solid #240ecd;
+		box-shadow: 0px 0px 10px 5px #d2d1d1;
+		transition: all 0.3s ease-out;
+	}
 `
 
 export const UserImg = styled.img`
@@ -40,18 +55,19 @@ export const UserImgSmall = styled.img`
 `
 
 export const ButtonsContainer = styled.div`
+	margin-top: 10px;
 	display: flex;
-	gap: 10px;
+	gap: 20px;
 `
 
 export const ShowMoreButton = styled.button`
 	color: #333333;
 	background: none;
-	font-size: 14px;
+	font-size: 20px;
 	text-align: center;
 	border: 2px solid #333333;
 	border-radius: 4px;
-	padding: 10px 0;
+	padding: 16px;
 	width: 170px;
 
 	&:hover {
@@ -63,12 +79,13 @@ export const ShowMoreButton = styled.button`
 `
 
 export const baseText = styled.h4`
-	font-size: 14px;
+	font-size: 16px;
 `
 export const UserDataBlock = styled.div`
+	animation: ${show} 0.4s ease-in-out;
 	position: fixed;
 	height: 500px;
-	width: 300px;
+	width: 400px;
 	word-wrap: break-word;
 	background-color: #ececec;
 	box-shadow: 0px 0px 10px 5px #d2d1d1;
