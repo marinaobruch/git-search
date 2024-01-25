@@ -1,12 +1,23 @@
-import { IGetUsers } from 'interface/api-interface'
+import { IGetUsers, IGetUsersItems } from 'interface/api-interface'
 import { FC } from 'react'
 import * as Styled from './user-data-styled'
 
 interface IProps {
 	users: IGetUsers
+	setOpenAddInfo: (item: boolean) => void
+	setSelectedUser: (item: IGetUsersItems) => void
 }
 
-export const UserData: FC<IProps> = ({ users }) => {
+export const UserData: FC<IProps> = ({
+	users,
+	setOpenAddInfo,
+	setSelectedUser,
+}) => {
+	const handleSelectUser = (user: IGetUsersItems) => {
+		setOpenAddInfo(true)
+		setSelectedUser(user)
+	}
+
 	return (
 		<Styled.UsersBlock>
 			{users?.items.map((item) => (
