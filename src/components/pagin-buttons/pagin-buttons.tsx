@@ -29,10 +29,12 @@ export const PaginationButtons: FC<IProps> = ({
 
 	return (
 		<Styled.ButtonsContainer>
-			<Styled.ShowMoreButton onClick={handleBack}>Назад</Styled.ShowMoreButton>
-			<Styled.ShowMoreButton onClick={handleForward}>
+			<Styled.ShowMoreButtonBack onClick={handleBack}>
+				Назад
+			</Styled.ShowMoreButtonBack>
+			<Styled.ShowMoreButtonFwd onClick={handleForward}>
 				Вперед
-			</Styled.ShowMoreButton>
+			</Styled.ShowMoreButtonFwd>
 		</Styled.ButtonsContainer>
 	)
 }

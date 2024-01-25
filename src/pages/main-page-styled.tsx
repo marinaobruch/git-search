@@ -14,5 +14,6 @@ export const Header = styled.h1`
 `
 
 export const baseText = styled.h4`
-	font-size: 16px;
+	color: #6632a2;
+	font-size: 20px;
 `

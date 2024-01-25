@@ -1,28 +1,28 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
+import { USER_PER_PAGE, initUserItem, initUserState } from 'constants'
 import { IGetUsers, IGetUsersItems } from 'interface/api-interface'
 
 import { CountUsers } from 'components/count-users'
 import { NavMenu } from 'components/nav-menu'
 import { PaginationButtons } from 'components/pagin-buttons'
 import { UserData } from 'components/user-data'
+import { UserInfo } from 'components/user-info'
 import { Input } from 'shared'
 
-import { UserInfo } from 'components/user-info'
 import * as Styled from './main-page-styled'
 
-const USER_PER_PAGE = 20
-
 export const MainPage = () => {
-	const [users, setUsers] = useState<IGetUsers>([])
+	const [users, setUsers] = useState<IGetUsers>(initUserState)
 	const [isLoading, setIsLoading] = useState<boolean>(true)
-	const [inputValue, setInputValue] = useState<string>('GitHub')
+	const [inputValue, setInputValue] = useState<string>('github')
 	const [pagePagination, setPagePagination] = useState<number>(1)
-	const [selectedUser, setSelectedUser] = useState<IGetUsersItems>([])
+	const [selectedUser, setSelectedUser] = useState<IGetUsersItems>(initUserItem)
 	const [openAddInfo, setOpenAddInfo] = useState<boolean>(false)
 	const [order, setOrder] = useState<string>('desc')
 	const [errors, setErrors] = useState<string>('')
+	console.log(inputValue.length)
 
 	const fetchData = () => {
 		axios
@@ -39,8 +39,11 @@ export const MainPage = () => {
 				console.debug(error.response.status)
 				if (error.response.status === 403) {
 					setErrors(
-						'Превышен лимит запросов, пожалуйста, попробуйте повторить через пару минут'
+						'Превышен лимит запросов к серверу, пожалуйста, попробуйте повторить через пару минут'
 					)
+					return
+				} else if (error.response.status === 422) {
+					setErrors('Пожалуйста, введите логин в поисковую строку')
 					return
 				}
 				setErrors(error.response.data.message)
@@ -48,7 +51,12 @@ export const MainPage = () => {
 	}
 
 	useEffect(() => {
+		setErrors('')
 		fetchData()
+		if (inputValue.length < 0) {
+			setInputValue('a')
+			return
+		}
 	}, [inputValue, pagePagination, order])
 
 	const currentPages = Number(Math.ceil(users?.total_count / USER_PER_PAGE))

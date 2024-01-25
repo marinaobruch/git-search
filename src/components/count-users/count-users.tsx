@@ -11,7 +11,9 @@ export const CountUsers: FC<IProps> = ({ users }) => {
 	return (
 		<Styled.CountUsersContainer>
 			{users?.total_count ? (
-				<div>Найдено {users?.total_count} пользователей</div>
+				<Styled.CountUsersHeader>
+					Найдено {users?.total_count} пользователей
+				</Styled.CountUsersHeader>
 			) : (
 				<div>Пользователи не найдены</div>
 			)}

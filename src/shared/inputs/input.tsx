@@ -6,14 +6,15 @@ import * as Styled from './input-styled'
 interface IProps {
 	setInputValue: React.Dispatch<React.SetStateAction<string>>
 }
-
-function makeDebouncedHook(debounceFn) {
-	return function useDebounce(cb, ms) {
+// ts-ignore
+function makeDebouncedHook(debounceFn: any) {
+	// ts-ignore
+	return function useDebounce(cb: any, ms: number) {
 		const latestCb = useLatest(cb)
 
 		const debouncedFn = useMemo(
 			() =>
-				debounceFn((...args) => {
+				debounceFn((...args: any[]) => {
 					latestCb.current(...args)
 				}, ms),
 			[ms, latestCb]

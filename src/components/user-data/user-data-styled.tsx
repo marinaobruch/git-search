@@ -4,6 +4,19 @@ export const UsersBlock = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 20px;
+
+	@media (min-width: 1200px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media (max-width: 1000px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 450px) {
+		grid-template-columns: repeat(1, 1fr);
+		margin: 10px;
+	}
 `
 
 export const User = styled.div`
@@ -19,7 +32,7 @@ export const User = styled.div`
 	cursor: pointer;
 
 	&:hover {
-		border: 1px solid #240ecd;
+		border: 1px solid #6632a2;
 		box-shadow: 0px 0px 10px 5px #d2d1d1;
 		transition: all 0.3s ease-out;
 	}

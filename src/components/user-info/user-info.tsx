@@ -25,6 +25,9 @@ export const UserInfo: FC<IProps> = ({
 				<div>Loading...</div>
 			) : (
 				<Styled.UserDataInfoContainer>
+					<Styled.UserDataMobileInfo>
+						Информация о пользователе
+					</Styled.UserDataMobileInfo>
 					<Styled.UserImgSmall
 						src={`${selectedUser?.avatar_url}`}
 						alt='img-avatar'

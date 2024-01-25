@@ -20,6 +20,7 @@ export default defineConfig({
 			utils: '/src/utils',
 			store: '/src/store',
 			database: '/src/database',
+			constants: '/src/constants',
 		},
 	},
 })
