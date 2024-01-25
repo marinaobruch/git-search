@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const NavMenuContainer = styled.div`
 	width: 100%;
-	background-image: url('./src/assets/backgrounds/texture.png');
+	background-image: url('texture.png');
 	border: 1px solid #e2e3e3;
 	box-sizing: border-box;
 `

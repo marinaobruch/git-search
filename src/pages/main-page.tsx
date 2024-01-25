@@ -23,7 +23,6 @@ export const MainPage = () => {
 	const [openAddInfo, setOpenAddInfo] = useState<boolean>(false)
 	const [order, setOrder] = useState<string>('desc')
 	const [errors, setErrors] = useState<string>('')
-	console.log(inputValue.length)
 
 	const fetchData = () => {
 		axios

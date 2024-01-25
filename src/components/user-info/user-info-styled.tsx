@@ -25,10 +25,9 @@ export const UserDataMobileInfo = styled.h2`
 export const UserDataBlock = styled.div`
 	animation: ${show} 0.4s ease-in-out;
 	position: fixed;
-	top: 350px;
+	top: 250px;
 	right: 45px;
-
-	height: 600px;
+	height: 400px;
 	width: 400px;
 	word-wrap: break-word;
 	background-color: #e6e0ed;
