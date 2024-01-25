@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Puff } from 'react-loader-spinner'
 
 import { USER_PER_PAGE, initUserItem, initUserState } from 'constants'
 import { IGetUsers, IGetUsersItems } from 'interface/api-interface'
@@ -71,7 +72,17 @@ export const MainPage = () => {
 				<>
 					<NavMenu setOrder={setOrder} />
 					{isLoading ? (
-						<div>Loading...</div>
+						<div>
+							<Puff
+								visible={true}
+								height='80'
+								width='80'
+								color='#6632a2'
+								ariaLabel='puff-loading'
+								wrapperStyle={{}}
+								wrapperClass=''
+							/>
+						</div>
 					) : (
 						<>
 							<CountUsers users={users} />
