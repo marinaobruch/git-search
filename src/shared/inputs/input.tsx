@@ -6,6 +6,7 @@ import * as Styled from './input-styled'
 interface IProps {
 	setInputValue: React.Dispatch<React.SetStateAction<string>>
 }
+
 // ts-ignore
 function makeDebouncedHook(debounceFn: any) {
 	// ts-ignore
@@ -25,21 +26,20 @@ function makeDebouncedHook(debounceFn: any) {
 		return debouncedFn
 	}
 }
-
 const useDebounce = makeDebouncedHook(debounce)
 
 export const Input: FC<IProps> = ({ setInputValue }) => {
 	const [query, setQuery] = useState<string>('')
-
 	const makeRequest = useDebounce(() => {
 		setInputValue(query)
-	}, 300)
+	}, 500)
 
 	const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = event.target
 		makeRequest(value)
 		setQuery(value)
 	}
+
 	return (
 		<Styled.Input onChange={handleSearch} placeholder='Поиск...' type='text' />
 	)

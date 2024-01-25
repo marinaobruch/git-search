@@ -16,6 +16,7 @@
 - обрабатывает ошибки от сервера,
 - использует лоадеры при загрузке данных,
 - учитывает размеры экранов до 350px (реализована адаптивная верстка),
+- отложенная отправка запроса (debounce)
 
 Application for searching users of the GitHub resource. Features of this application:
 
@@ -31,6 +32,7 @@ Project:
 - handles errors from the server,
 - uses loaders when loading data,
 - takes into account screen sizes up to 350px (adaptive implemented),
+- deferred request sending (debounce)
 
 ---
 
