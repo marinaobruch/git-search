@@ -38,8 +38,6 @@ Project:
 
 ### The following technologies were used to develop this project / Технологии, используемые при разработке проекта:
 
-The following technologies were used to develop this project / Технологии, используемые при разработке проекта:
-
 - TypeScript
 - React (React Hooks)
 - Styled Components
